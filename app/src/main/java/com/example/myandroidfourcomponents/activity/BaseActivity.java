@@ -102,7 +102,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     protected void localStartActivityWithNewTask(Class<? extends Activity> baseActivityClass) {
         Intent i = new Intent(this, baseActivityClass);
-            i.addFlags(Intent.FLAG_ACTIVITY_);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
 }

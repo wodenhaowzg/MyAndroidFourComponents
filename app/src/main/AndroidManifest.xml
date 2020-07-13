@@ -19,6 +19,7 @@
         <activity android:name=".activity.BActivity" />
         <activity android:name=".activity.CActivity" />
         <activity android:name=".activity.DActivity" />
+        <service android:name="com.example.myandroidfourcomponents.sevice.MainService" />
     </application>
 
 </manifest>

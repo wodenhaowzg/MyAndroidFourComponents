@@ -27,6 +27,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         viewDataBinding.mainStartNext.setOnClickListener(this);
+        viewDataBinding.mainStartNext2.setOnClickListener(this);
 
 //        new Thread(new Runnable() {
 //            @Override
@@ -50,6 +51,8 @@ public class MainActivity extends BaseActivity {
     @Override
     void onClickImpl(View v) {
         if (v.getId() == viewDataBinding.mainStartNext.getId()) {
+            localStartActivity(BActivity.class);
+        } else if (v.getId() == viewDataBinding.mainStartNext2.getId()) {
             localStartActivityWithNewTask(BActivity.class);
         }
     }

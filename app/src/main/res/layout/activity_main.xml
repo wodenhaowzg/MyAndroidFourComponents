@@ -15,6 +15,13 @@
             android:layout_height="wrap_content"
             android:text="打开b页面" />
 
+        <Button
+            android:id="@+id/main_start_next2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_start_next"
+            android:text="打开b页面(FLAG_ACTIVITY_NEW_TASK)" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
