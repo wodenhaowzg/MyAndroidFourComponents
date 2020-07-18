@@ -1,17 +1,18 @@
-package com.example.myandroidfourcomponents.activity;
+package com.example.myandroidfourcomponents.activity.launch;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import androidx.annotation.Nullable;
+import com.example.myandroidfourcomponents.R;
+import com.example.myandroidfourcomponents.activity.BaseActivity;
+import com.example.myandroidfourcomponents.databinding.ActivityBBinding;
+
 import androidx.databinding.DataBindingUtil;
 
-import com.example.myandroidfourcomponents.R;
-import com.example.myandroidfourcomponents.databinding.ActivityBBinding;
-import com.example.myandroidfourcomponents.databinding.ActivityMainBinding;
-
-public class BActivity extends BaseActivity{
+/**
+ *  如果Activity实例位于当前任务栈顶，就重用栈顶实例，而不新建，并回调该实例 onNewIntent 方法，否则走新建流程。
+ */
+public class BActivity extends BaseActivity {
 
     private ActivityBBinding viewDataBinding;
 
@@ -21,14 +22,17 @@ public class BActivity extends BaseActivity{
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_b);
         viewDataBinding.bStartNext.setOnClickListener(this);
         viewDataBinding.bStartNext2.setOnClickListener(this);
+        viewDataBinding.bStartNext3.setOnClickListener(this);
     }
 
     @Override
-    void onClickImpl(View v) {
+    public void onClickImpl(View v) {
         if (v.getId() == viewDataBinding.bStartNext.getId()) {
-            localStartActivity(CActivity.class);
+            localStartActivity(BActivity.class);
         } else if (v.getId() == viewDataBinding.bStartNext2.getId()) {
-            localStartActivityWithNewTask(CActivity.class);
+            localStartActivity(CActivity.class);
+        } else if (v.getId() == viewDataBinding.bStartNext3.getId()) {
+            localStartActivity(DActivity.class);
         }
     }
 }

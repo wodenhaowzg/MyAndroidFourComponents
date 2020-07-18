@@ -7,6 +7,8 @@ import java.util.List;
 
 public class ActivityUtils {
 
+    private static final String TAG = "ActivityUtils";
+
     public static String getActivityInfos(Context context){
         StringBuilder sb = new StringBuilder();
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
@@ -26,10 +28,11 @@ public class ActivityUtils {
                     .append("\t[").append(" top activity : ").append(taskInfo.topActivity).append(" // 任务栈顶端 activity ").append("\n")
                     .append("\t[").append(" num activitys : ").append(taskInfo.numActivities).append(" // 当前任务栈包含的 activity 数量 ").append("\n");
         }
-//        List<ActivityManager.RunningTaskInfo> runningTasks = manager.getRunningTasks(5);
-//        for (ActivityManager.RunningTaskInfo runningTask : runningTasks) {
-//            MyLog.d(TAG, "iterator runningTask : " + runningTask.toString());
-//        }
+
+        List<ActivityManager.RunningTaskInfo> runningTasks = manager.getRunningTasks(5);
+        for (ActivityManager.RunningTaskInfo runningTask : runningTasks) {
+            MyLog.d(TAG, "iterator runningTask : " + runningTask.topActivity.getClassName());
+        }
         return sb.toString();
     }
 }

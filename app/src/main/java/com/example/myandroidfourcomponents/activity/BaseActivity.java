@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.example.myandroidfourcomponents.utils.ActivityUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.myandroidfourcomponents.utils.ActivityUtils;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -93,7 +93,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         onClickImpl(v);
     }
 
-    abstract void onClickImpl(View v);
+    public abstract void onClickImpl(View v);
 
     protected void localStartActivity(Class<? extends Activity> baseActivityClass) {
         Intent i = new Intent(this, baseActivityClass);
