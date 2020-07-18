@@ -5,6 +5,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
 import android.app.ActivityManager;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.view.View;
 
 import com.example.myandroidfourcomponents.R;
 import com.example.myandroidfourcomponents.databinding.ActivityMainBinding;
+import com.example.myandroidfourcomponents.job.MyFirstJobScheduler;
 import com.example.myandroidfourcomponents.utils.ActivityUtils;
 import com.example.myandroidfourcomponents.utils.MyLog;
 
@@ -46,6 +49,13 @@ public class MainActivity extends BaseActivity {
 //                }
 //            }
 //        }).start();
+
+        MyFirstJobScheduler jobScheduler = new MyFirstJobScheduler();
+        JobInfo.Builder builder = new JobInfo.Builder(2).build();
+        jobScheduler.schedule()
+
+        JobScheduler service = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        service.
     }
 
     @Override

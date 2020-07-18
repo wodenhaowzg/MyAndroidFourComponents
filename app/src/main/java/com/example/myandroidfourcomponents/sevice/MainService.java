@@ -5,5 +5,6 @@ class MainService extends BaseService {
     @Override
     public void onCreate() {
         super.onCreate();
+        new Thread().start();
     }
 }
