@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.myandroidfourcomponents.LocalHolder;
 import com.example.myandroidfourcomponents.R;
 import com.example.myandroidfourcomponents.activity.launch.BActivity;
 import com.example.myandroidfourcomponents.activity.launch.LaunchActivity;
 import com.example.myandroidfourcomponents.databinding.ActivityMainBinding;
 import com.example.myandroidfourcomponents.sevice.MainService;
 import com.example.myandroidfourcomponents.utils.FloatWindowUtils;
+import com.example.myandroidfourcomponents.view.ActivityFloatView;
 
 import androidx.databinding.DataBindingUtil;
 
@@ -26,25 +28,6 @@ public class MainActivity extends BaseActivity {
         viewDataBinding.mainStartNext.setOnClickListener(this);
         viewDataBinding.mainStartNext2.setOnClickListener(this);
         viewDataBinding.mainStartService1.setOnClickListener(this);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-//        TextView textView = new TextView(getApplication());
-//        textView.setText("我是window");
-//        textView.setTextColor(Color.RED);
-//        textView.setTextSize(20);
-//
-//        WindowManager.LayoutParams params = new WindowManager.LayoutParams();
-//        params.width = 200;
-//        params.height = 200;
-//        params.type =  WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
-//        params.token = getWindow().getDecorView().getWindowToken();
-//        getWindowManager().addView(textView, params);
-
-        FloatWindowUtils.applyOrShowFloatWindow(this);
     }
 
     @Override

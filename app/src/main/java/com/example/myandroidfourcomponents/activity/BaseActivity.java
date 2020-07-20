@@ -8,7 +8,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.example.myandroidfourcomponents.LocalHolder;
 import com.example.myandroidfourcomponents.utils.ActivityUtils;
+import com.example.myandroidfourcomponents.utils.FloatWindowUtils;
+import com.example.myandroidfourcomponents.view.ActivityFloatView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +40,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         Log.d(this.getClass().getSimpleName(), "onCreate... " + (savedInstanceState == null ? "null" : savedInstanceState.toString()));
         String activityInfos = ActivityUtils.getActivityInfos(this);
         Log.d(this.getClass().getSimpleName(), " activityInfos : " + activityInfos);
+
+        ActivityFloatView activityFloatView = LocalHolder.getInstance().getActivityFloatView();
+        if (activityFloatView == null) {
+            activityFloatView = new ActivityFloatView(this);
+            LocalHolder.getInstance().setActivityFloatView(activityFloatView);
+            FloatWindowUtils.applyOrShowFloatWindow(this, activityFloatView);
+        }
+        activityFloatView.addItem(this.getClass().getSimpleName(), getTaskId());
     }
 
     @Override
@@ -49,6 +60,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Log.d(this.getClass().getSimpleName(), "onNewIntent...");
+        ActivityFloatView activityFloatView = LocalHolder.getInstance().getActivityFloatView();
+        activityFloatView.moveItemToTop(this.getClass().getSimpleName());
     }
 
     @Nullable
@@ -86,6 +99,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void onDestroy() {
         super.onDestroy();
         Log.d(this.getClass().getSimpleName(), "onDestroy...");
+        ActivityFloatView activityFloatView = LocalHolder.getInstance().getActivityFloatView();
+        activityFloatView.removeItem(this.getClass().getSimpleName());
     }
 
     @Override

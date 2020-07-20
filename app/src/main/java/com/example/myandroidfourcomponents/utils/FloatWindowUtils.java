@@ -11,6 +11,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
@@ -27,11 +28,15 @@ import java.lang.reflect.Method;
 
 public class FloatWindowUtils {
 
-    private static final String TAG = "";
+    private static final String TAG = "FloatWindowUtils";
 
-    public static void applyOrShowFloatWindow(Context context) {
+    public static void applyOrShowFloatWindow(Context context, View view) {
+        if (context == null || view == null) {
+            return;
+        }
+
         if (checkPermission(context)) {
-            showWindow(context);
+            showWindow(context, view);
         } else {
             applyPermission(context);
         }
@@ -73,13 +78,7 @@ public class FloatWindowUtils {
         }
     }
 
-    private static void showWindow(Context context) {
-//        if (!isWindowDismiss) {
-//            Log.e(TAG, "view is already added here");
-//            return;
-//        }
-
-//        isWindowDismiss = false;
+    private static void showWindow(Context context, View view) {
         WindowManager windowManager = (WindowManager) context.getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
         Point size = new Point();
         windowManager.getDefaultDisplay().getSize(size);
@@ -103,11 +102,7 @@ public class FloatWindowUtils {
         params.gravity = Gravity.LEFT | Gravity.TOP;
         params.x = screenWidth - 100;
         params.y = screenHeight - 200;
-
-
-        ImageView imageView = new ImageView(context);
-        imageView.setImageResource(R.mipmap.ic_launcher);
-        windowManager.addView(imageView, params);
+        windowManager.addView(view, params);
     }
 
     private static boolean huaweiPermissionCheck(Context context) {

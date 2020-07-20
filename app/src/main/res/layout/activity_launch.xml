@@ -11,20 +11,27 @@
 			android:id="@+id/b_start_next"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="打开页面A(singleTop)" />
+			android:text="打开页面B(singleTop)" />
 
 		<Button
 			android:id="@+id/b_start_next2"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_below="@+id/b_start_next"
-			android:text="打开页面B(singleTask)" />
+			android:text="打开页面C(singleTask)" />
 
 		<Button
 			android:id="@+id/b_start_next3"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_below="@+id/b_start_next2"
-			android:text="打开页面C(singleInstance)" />
+			android:text="打开页面D(singleInstance)" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:text="我是 LaunchActivity 页面"
+			android:textSize="20sp"
+			android:layout_centerInParent="true"
+			android:layout_height="wrap_content"/>
 	</RelativeLayout>
 </layout>
