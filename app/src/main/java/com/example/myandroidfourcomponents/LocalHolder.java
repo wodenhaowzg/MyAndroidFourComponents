@@ -1,5 +1,7 @@
 package com.example.myandroidfourcomponents;
 
+import android.app.Notification;
+
 import com.example.myandroidfourcomponents.view.ActivityFloatView;
 
 public class LocalHolder {
@@ -7,6 +9,16 @@ public class LocalHolder {
     private static LocalHolder mLocalHolder;
 
     private ActivityFloatView mActivityFloatView;
+
+    public Notification getNotification() {
+        return mNotification;
+    }
+
+    public void setNotification(Notification mNotification) {
+        this.mNotification = mNotification;
+    }
+
+    private Notification mNotification;
 
     private LocalHolder() {
 

@@ -117,7 +117,32 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     protected void localStartActivityWithNewTask(Class<? extends Activity> baseActivityClass) {
         Intent i = new Intent(this, baseActivityClass);
+        // 在 service 或 application 中启动 activity，需要携带此标记才可以
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
+    }
+
+    protected void localStartActivityWithSingleTop(Class<? extends Activity> baseActivityClass) {
+        Intent i = new Intent(this, baseActivityClass);
+        // 此flag单独使用的行为与清单文件中的singleTop行为是一致的
+        i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(i);
+    }
+
+    protected void localStartActivityWithSingleTask(Class<? extends Activity> baseActivityClass) {
+        Intent i = new Intent(this, baseActivityClass);
+        // 此两个个flag组合使用，与清单文件中的singleTask行为是一致的。
+        // 清除任务栈中 activity 之上的其他 activity 实例
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(i);
+    }
+
+    protected void localStartActivityWithSingleInstance(Class<? extends Activity> baseActivityClass) {
+        Intent i = new Intent(this, baseActivityClass);
+        i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         startActivity(i);
     }
 }

@@ -4,6 +4,8 @@
 
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
 	<application
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
@@ -27,8 +29,13 @@
 		<activity
 			android:name=".activity.launch.DActivity"
 			android:launchMode="singleInstance" />
+		<activity android:name=".activity.launch2.LaunchActivity2" />
+		<activity android:name=".activity.launch2.BActivity2" />
+		<activity android:name=".activity.launch2.CActivity2" />
+		<activity android:name=".activity.launch2.DActivity2" />
 
 		<service android:name="com.example.myandroidfourcomponents.sevice.MainService" />
+		<service android:name="com.example.myandroidfourcomponents.sevice.ForegroundService" />
 		<service
 			android:name="com.example.myandroidfourcomponents.job.MyFirstJobService"
 			android:exported="true"

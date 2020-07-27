@@ -7,25 +7,44 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-		<Button
-			android:id="@+id/main_start_next"
+		<LinearLayout
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="打开页面Launch" />
+			android:orientation="vertical">
 
-		<Button
-			android:id="@+id/main_start_next2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/main_start_next"
-			android:text="打开b页面(FLAG_ACTIVITY_NEW_TASK)" />
+			<Button
+				android:id="@+id/main_start_next"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="测试清单文件声明的启动模式" />
 
-		<Button
-			android:id="@+id/main_start_service1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/main_start_next2"
-			android:text="打开服务main" />
+			<Button
+				android:id="@+id/main_start_next2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="测试Flag声明的启动模式" />
+
+			<Button
+				android:id="@+id/main_start_next3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/main_start_next"
+				android:text="测试不同的taskAffinity" />
+
+			<Button
+				android:id="@+id/main_start_service1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/main_start_next4"
+				android:text="打开服务main" />
+
+			<Button
+				android:id="@+id/main_test_notification"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/main_start_next4"
+				android:text="打开notification测试对话框" />
+		</LinearLayout>
 
 		<TextView
 			android:layout_width="wrap_content"
